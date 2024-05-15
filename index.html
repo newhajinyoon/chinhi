@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>친희 말투 편환키</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff; 
+        text-align: center; 
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        color: #00008b; 
+    }
+    #inputText, #outputText {
+        width: 80%;
+        margin: 20px auto; 
+        padding: 10px;
+        border: 1px solid #00008b; 
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+    button {
+        background-color: #00008b; 
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    button:hover {
+        background-color: #4169e1; 
+    }
+</style>
+</head>
+<body>
+<h1>친희 말투 편환키</h1>
+<textarea id="inputText" rows="4" cols="50" placeholder="한글을 입력하세요"></textarea><br>
+<button onclick="convertHangul()">변환</button><br>
+<div id="outputText"></div>
+
+<script src="hangul.js"></script>
+<script>
+function convertHangul() {
+    var input = document.getElementById("inputText").value;
+    
+    var disassembled = Hangul.disassemble(input);
+    for (var i = 0; i < disassembled.length; i++) {
+        switch (disassembled[i]) {
+            case 'ㄱ':
+                disassembled[i] = 'ㅋ';
+                break;
+            case 'ㄲ':
+                disassembled[i] = 'ㅋ';
+                break;
+            case 'ㅈ':
+                disassembled[i] = 'ㅊ';
+                break;
+            case 'ㅂ':
+                disassembled[i] = 'ㅍ';
+                break;
+            case 'ㄷ':
+                disassembled[i] = 'ㅌ';
+                break;
+            case 'ㄸ':
+                disassembled[i] = 'ㅌ';
+                break;
+            case 'ㅃ':
+                disassembled[i] = 'ㅍ';
+                break;
+        }
+    }
+    
+    var output = Hangul.assemble(disassembled);
+    
+    document.getElementById("outputText").innerText = output;
+}
+</script>
+</body>
+</html>
