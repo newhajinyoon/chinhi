@@ -18,6 +18,3 @@
 
 - [hangeul.js](https://github.com/e-/Hangul.js)
 
----
-
-이렇케 하면 사용차틀이 이 프로쳌트를 이해하코 사용하는 테 토움이 퇼 컷잎니타.
